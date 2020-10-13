@@ -261,7 +261,7 @@ static int store_object(git_indexer *idx)
 {
 	int i, error;
 	khiter_t k;
-	git_oid oid;
+	git_oid oid = {};
 	struct entry *entry;
 	git_off_t entry_size;
 	struct git_pack_entry *pentry;
@@ -886,7 +886,7 @@ int git_indexer_commit(git_indexer *idx, git_transfer_progress *stats)
 	struct git_pack_idx_header hdr;
 	git_buf filename = GIT_BUF_INIT;
 	struct entry *entry;
-	git_oid trailer_hash, file_hash;
+	git_oid trailer_hash = {}, file_hash;
 	git_hash_ctx ctx;
 	git_filebuf index_file = {0};
 	void *packfile_trailer;
